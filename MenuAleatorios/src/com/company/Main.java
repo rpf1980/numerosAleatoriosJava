@@ -21,22 +21,8 @@ public class Main
         System.out.println("[7] Quiniela");
         System.out.println("[8] Recuento de aleatorios | nº 24");
         System.out.println("[9] Pinta 10 líneas con caracteres");
-        System.out.println("[] ");
-        System.out.println("[] ");
-        System.out.println("[] ");
-        System.out.println("[] ");
-        System.out.println("[] ");
-        System.out.println("[] ");
-        System.out.println("[] ");
-        System.out.println("[] ");
-        System.out.println("[] ");
-        System.out.println("[] ");
-        System.out.println("[] ");
-        System.out.println("[] ");
-        System.out.println("[] ");
-        System.out.println("[] ");
-        System.out.println("[] ");
-        System.out.println("[] ");
+        System.out.println("[10] 20 calificaciones");       //**NO ENTIENDO ALGORITMO QUE USA
+        System.out.println("[11] Dados del mismo valor");
         System.out.println();
         System.out.print("Elige una opción: ");
         int opcion = sc.nextInt();
@@ -341,6 +327,89 @@ public class Main
                     System.out.println();
                 }
 
+            }
+            break;
+
+            case 10:
+            {
+                //Escribe un programa que muestre 20 notas generadas al azar. Las notas deben aparecer de la
+                //forma: suspenso, suficiente, bien, notable o sobresaliente. Al final aparecerá el número de
+                //suspensos, el número de suficientes, el número de bienes, etc.
+
+                int nota, i;
+                int suspensos = 0;
+                int suficientes = 0;
+                int bienes = 0;
+                int notables = 0;
+                int sobresalientes = 0;
+
+                for(i = 0; i < 20; i++)
+                {
+                    nota = (int)(Math.random()*11);
+                    System.out.print(nota + " ");
+
+                    switch (nota)
+                    {
+                        case 0:
+                        {
+                            System.out.print("suspenso");
+                            suspensos++;
+                        }
+                            break;
+                        case 1:
+                        {
+                            System.out.println("suficiente");
+                        }
+                        break;
+                        case 2:
+                        {
+                            System.out.println("bien");
+                            bienes++;
+                        }
+                        break;
+                        case 3:
+                        {
+                            System.out.println("notable");
+                            notables++;
+                        }
+                        break;
+                        case 4:
+                        {
+                            System.out.println("sobresaliente");
+                            sobresalientes++;
+                        }
+                        break;
+
+                    }
+                }
+                System.out.println("SUFICIENTES = " + suficientes);
+                System.out.println("BIENES = " + bienes);
+                System.out.println("NOTABLES = " + notables);
+                System.out.println("SOBRESALIENTES = " + sobresalientes);
+            }
+            break;
+
+            case 11:
+            {
+                //Escribe un programa que simule la tirada de dos dados. El programa deberá
+                //continuar tirando los dados una y otra vez hasta que en alguna tirada los
+                //dos dados tengan el mismo valor.
+
+                /*int dado1 = (int)(Math.random()*6+1);
+                int dado2 = (int)(Math.random()*6+1);*/
+
+                int dado1 = 0;
+                int dado2 = 1;
+
+                while(dado1 != dado2)
+                {
+                    dado1 = (int)(Math.random()*6+1);
+                    dado2 = (int)(Math.random()*6+1);
+                    System.out.println(dado1);
+                    System.out.println(dado2);
+                }
+                System.out.println("Termina juego dado1 = " + dado1);
+                System.out.println("Termina juego dado2 = " + dado2);
             }
             break;
         }
