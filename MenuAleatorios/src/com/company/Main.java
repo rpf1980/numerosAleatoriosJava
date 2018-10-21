@@ -1,5 +1,6 @@
 package com.company;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main
@@ -37,12 +38,13 @@ public class Main
 
                 System.out.println("TIRADA DE DADOS");
 
+                Random rd = new Random();
                 int sumaPuntos, i, tirada;
                 sumaPuntos = 0;
 
                 for (i = 1; i <= 3; i++)
                 {
-                    tirada = (int) (Math.random() * 6 + 1);
+                    tirada = rd.nextInt(6)+1;
                     System.out.println("DADO " + i + " = " + tirada + " ");
                     sumaPuntos += tirada;
                 }
@@ -61,11 +63,12 @@ public class Main
 
                 System.out.println("CARTA AL AZAR");
 
+                Random rd = new Random();
                 String palo = "";
                 String carta = "";
 
-                int numeroPalo = (int) (Math.random() * 4 + 1);
-                int numeroCarta = (int) (Math.random() * 13 + 1);
+                int numeroPalo = rd.nextInt(4)+1;
+                int numeroCarta = rd.nextInt(13)+1;
 
                 switch (numeroPalo)
                 {
@@ -113,10 +116,11 @@ public class Main
                 //Igual que el ejercicio anterior pero con la baraja española. Se utilizará la baraja de
                 //48 cartas: 2, 3, 4, 5, 6, 7, 8, 9, sota, caballo, rey y as.
 
+                Random rd = new Random();
                 String palo = "";
                 String carta = "";
-                int numeroPalo = (int) (Math.random() * 4);
-                int numeroCarta = (int) (Math.random() * 11 + 1);
+                int numeroPalo = rd.nextInt(4);
+                int numeroCarta = rd.nextInt(11)+1;
 
                 switch (numeroPalo)
                 {
@@ -164,11 +168,14 @@ public class Main
                 //Muestra 20 números enteros aleatorios entre 0 y 10 (ambos incluidos)
                 //separados por espacios.
 
+                Random rd = new Random();
+                int n;
                 int i;
 
                 for (i = 0; i < 20; i++)
                 {
-                    System.out.print((int) (Math.random() * 11) + " ");
+                    n = rd.nextInt(11);
+                    System.out.print(n + " ");
                 }
             }
             break;
@@ -178,21 +185,34 @@ public class Main
                 //Muestra 50 números enteros aleatorios entre 100 y 199 (ambos incluidos)
                 //separados por espacios. Muestra el máximo, el mínimo y la media de esos números.
 
+                Random rd = new Random();
+
                 int max, min, suma, media;
                 suma = 0;
                 int i, n;
+                max = 199;
+                min = 100;
 
 
                 for (i = 0; i < 50; i++)
                 {
-                    n = (int) (Math.random() * 10 + 1);
+                    n = rd.nextInt(100)+100;
                     System.out.print(n + "  ");
                     suma += n;
+
+                    if(n < min)
+                    {
+                        min = n;
+                    }
+                    if(n > max)
+                    {
+                        max = n;
+                    }
                 }
-                System.out.println();
-                System.out.println("Suma = " + suma);
+                System.out.println("\nMAXIMO = " + max);
+                System.out.println("MINIMO = " + min);
                 media = suma / 50;
-                System.out.println("Media = " + media);
+                System.out.println("MEDIA = " + media);
             }
             break;
 
@@ -203,9 +223,10 @@ public class Main
                 //programa dirá cuántas oportunidades quedan y si el número introducido es menor o
                 //mayor que el que ha pensado.
 
+                Random rd = new Random();
                 int n;
                 int intentos;
-                int azar = (int) (Math.random() * 101);
+                int azar = rd.nextInt(101);
 
                 System.out.print("Escribe un número: ");
                 n = sc.nextInt();
@@ -241,6 +262,7 @@ public class Main
                 //Escribe un programa que muestre tres apuestas de la quiniela en
                 //tres columnas para los partidos y el pleno al quince (15 filas).
 
+                Random rd = new Random();
                 int resultadoPartido;
                 int columnas = 3;
 
@@ -255,7 +277,7 @@ public class Main
 
                     for (int apuesta = 1; apuesta <= columnas; apuesta++)
                     {
-                        resultadoPartido = (int) (Math.random() * 3 + 1);
+                        resultadoPartido = rd.nextInt(3)+1;
                         switch (resultadoPartido)
                         {
                             case 1:
@@ -281,12 +303,13 @@ public class Main
                 //entre 0 y 100 y que no termine hasta que no saque el número 24. El
                 //programa deberá decir al final cuántos números se han generado.
 
+                Random rd = new Random();
                 int n = 0;
                 int cuentaNumero = 0;
 
                 while(n != 24)
                 {
-                    n = (int)(Math.random()*51 * 2);
+                    n = rd.nextInt(51)*2;
                     System.out.print(n + "  ");
                     cuentaNumero++;
                 }
@@ -301,14 +324,15 @@ public class Main
                 //uno de los siguientes: *, -, =, ., |, @. Las líneas deben tener una longitud
                 //aleatoria entre 1 y 40 caracteres.
 
+                Random rd = new Random();
                 int longitud;
                 int r;
                 String relleno = "";
 
                 for(int i = 1; i <= 10; i++)
                 {
-                    longitud = (int)(Math.random()*40+1);
-                    r = (int)(Math.random()*6+1);
+                    longitud = rd.nextInt(40)+1;
+                    r = rd.nextInt(6)+1;
 
                     switch (r)
                     {
@@ -336,6 +360,8 @@ public class Main
                 //forma: suspenso, suficiente, bien, notable o sobresaliente. Al final aparecerá el número de
                 //suspensos, el número de suficientes, el número de bienes, etc.
 
+                Random rd = new Random();
+
                 int nota, i;
                 int suspensos = 0;
                 int suficientes = 0;
@@ -345,44 +371,46 @@ public class Main
 
                 for(i = 0; i < 20; i++)
                 {
-                    nota = (int)(Math.random()*11);
-                    System.out.print(nota + " ");
-
-                    switch (nota)
+                    nota = rd.nextInt(11);
+                    if(nota >= 0 && nota < 5)
                     {
-                        case 0:
+                        System.out.println(nota + " = Suspenso");
+                        suspensos++;
+                    }
+                    else
+                    {
+                        if(nota >= 5 && nota < 6)
                         {
-                            System.out.print("suspenso");
-                            suspensos++;
+                            System.out.println(nota + " = Suficiente");
+                            suficientes++;
                         }
-                            break;
-                        case 1:
+                        else
                         {
-                            System.out.println("suficiente");
+                            if(nota >= 6 && nota <= 7)
+                            {
+                                System.out.println(nota + " = Bien");
+                                bienes++;
+                            }
+                            else
+                            {
+                                if(nota > 7 && nota < 9)
+                                {
+                                    System.out.println(nota + " = Notable");
+                                    notables++;
+                                }
+                                else
+                                {
+                                    if(nota >= 9 && nota <= 10)
+                                    {
+                                        System.out.println(nota + " = Sobresaliente");
+                                        sobresalientes++;
+                                    }
+                                }
+                            }
                         }
-                        break;
-                        case 2:
-                        {
-                            System.out.println("bien");
-                            bienes++;
-                        }
-                        break;
-                        case 3:
-                        {
-                            System.out.println("notable");
-                            notables++;
-                        }
-                        break;
-                        case 4:
-                        {
-                            System.out.println("sobresaliente");
-                            sobresalientes++;
-                        }
-                        break;
-
                     }
                 }
-                System.out.println("SUFICIENTES = " + suficientes);
+                System.out.println("\nSUFICIENTES = " + suficientes);
                 System.out.println("BIENES = " + bienes);
                 System.out.println("NOTABLES = " + notables);
                 System.out.println("SOBRESALIENTES = " + sobresalientes);
@@ -398,13 +426,14 @@ public class Main
                 /*int dado1 = (int)(Math.random()*6+1);
                 int dado2 = (int)(Math.random()*6+1);*/
 
+                Random rd = new Random();
                 int dado1 = 0;
                 int dado2 = 1;
 
                 while(dado1 != dado2)
                 {
-                    dado1 = (int)(Math.random()*6+1);
-                    dado2 = (int)(Math.random()*6+1);
+                    dado1 = rd.nextInt(6)+1;
+                    dado2 = rd.nextInt(6)+1;
                     System.out.println(dado1);
                     System.out.println(dado2);
                 }
